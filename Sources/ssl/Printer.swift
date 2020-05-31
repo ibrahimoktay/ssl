@@ -15,6 +15,29 @@ struct Printer {
             if cert.commonName != nil {
                 print("Common Name: \(cert.commonName!)")
             }
+            if cert.publicKeySha256 != nil {
+                print("Public key SHA-256: \(cert.publicKeySha256!)")
+            }
+           
+            if cert.publicKeyAlgorithm != nil {
+                print()
+                print("Public Key Algorithm: \(cert.publicKeyAlgorithm!)")
+            }
+            if cert.publicKey != nil {
+                print("-----BEGIN PUBLIC KEY-----")
+                print(cert.publicKey!)
+                print("-----END PUBLIC KEY-----")
+            }
+            print()
+        }
+    }
+    
+    static func printAll(_ certificates: [SSLCertificateInfo]) {
+        for cert in certificates {
+            print("------------------------------------------------------------")
+            if cert.commonName != nil {
+                print("Common Name: \(cert.commonName!)")
+            }
             if cert.fingerPrintSha1 != nil {
                 print("Fingerprint SHA-1: \(cert.fingerPrintSha1!)")
             }
