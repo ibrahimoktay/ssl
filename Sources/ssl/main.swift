@@ -3,6 +3,15 @@ import Foundation
 
 struct SSL: ParsableCommand {
     
+    static var configuration = CommandConfiguration(
+            abstract: "An experimental SSL helper.",
+            discussion: """
+            Prints to details about SSL certificates of a domain.
+            Work in Progress...
+            """,
+            version: "0.0.1"
+    )
+    
     @Flag()
     var publicKey: Bool
     

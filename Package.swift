@@ -5,6 +5,9 @@ import PackageDescription
 
 let package = Package(
     name: "ssl",
+    platforms: [
+      .macOS(.v10_15)
+    ],
     products: [
         .executable(name: "ssl", targets: ["ssl"]),
     ],
