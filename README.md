@@ -1,4 +1,4 @@
-#Experimental ssl helper
+## Experimental - ssl helper
 Command line tool for printing ssl certificate information.
 
 
