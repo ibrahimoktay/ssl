@@ -15,7 +15,6 @@ struct Utility {
       0xf7, 0x0d, 0x01, 0x01, 0x01, 0x05, 0x00, 0x03, 0x82, 0x01, 0x0f, 0x00
     ]
     
-    @available(OSX 10.15, *)
     static func calculatePublicKeySha256Hash(data: Data?) -> String? {
         guard let data = data else {
             return nil
@@ -26,7 +25,6 @@ struct Utility {
         return Data(SHA256.hash(data: keyWithHeader)).base64EncodedString()
     }
     
-    @available(OSX 10.15, *)
     static func calculateSha1Fingerprint(data: Data) -> String? {
         let digest = Insecure.SHA1.hash(data: data)
         let fingerprint = digest.makeIterator().map { String(format: "%02X ", $0) }.joined()

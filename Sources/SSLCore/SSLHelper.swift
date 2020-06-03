@@ -7,23 +7,22 @@
 
 import Foundation
 
-@available(OSX 10.15, *)
-class SSLHelper: NSObject, URLSessionDelegate {
+public class SSLHelper: NSObject, URLSessionDelegate {
     var urlSession: URLSession!
     var certificates: [SSLCertificateInfo]!
     
-    override init() {
+    public override init() {
         super.init()
         self.urlSession = URLSession(configuration: .default, delegate: self, delegateQueue: nil)
     }
     
-    func getCertificate(from url: String) -> [SSLCertificateInfo] {
+    public func getCertificate(from url: String) -> [SSLCertificateInfo] {
         urlSession.dataTask(with: URL(string: url)!).resume()
         CFRunLoopRun()
         return certificates
     }
     
-    func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+    public func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
         
         do {
             certificates = try SSLParser.parse(challenge.protectionSpace.serverTrust)
@@ -35,7 +34,7 @@ class SSLHelper: NSObject, URLSessionDelegate {
         CFRunLoopStop(CFRunLoopGetMain())
     }
     
-    func urlSession(_ session: URLSession, didBecomeInvalidWithError error: Error?) {
+    public func urlSession(_ session: URLSession, didBecomeInvalidWithError error: Error?) {
         print("errorrr")
     }
 }

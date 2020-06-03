@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SSLCertificateInfo {
+public struct SSLCertificateInfo {
     var subjectSummary: String!
     var fingerPrintSha1: String!
     var publicKeySha256: String!
@@ -24,7 +24,6 @@ struct SSLCertificateInfo {
     var signatureAlgorithm: String!
 }
 
-@available(OSX 10.15, *)
 extension SSLCertificateInfo {
     
     static func parseValue(from dict: [CFString: [CFString: AnyObject]], for key: CFString) -> String? {

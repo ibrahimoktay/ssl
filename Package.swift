@@ -23,9 +23,13 @@ let package = Package(
             name: "ssl",
             dependencies: [
                 .product(name: "ArgumentParser", package: "swift-argument-parser"),
+                "SSLCore"
         ]),
+        .target(
+            name: "SSLCore"
+        ),
         .testTarget(
             name: "sslTests",
-            dependencies: ["ssl"]),
+            dependencies: ["SSLCore"]),
     ]
 )

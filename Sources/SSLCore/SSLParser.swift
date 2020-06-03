@@ -14,7 +14,6 @@ enum ParseError: Error {
     case publicKeyRepresentation
 }
 
-@available(OSX 10.15, *)
 struct SSLParser {
     
     static func parse(_ certificate: SecCertificate) throws -> SSLCertificateInfo {

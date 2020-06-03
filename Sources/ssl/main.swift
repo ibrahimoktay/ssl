@@ -1,5 +1,6 @@
 import ArgumentParser
 import Foundation
+import SSLCore
 
 struct SSL: ParsableCommand {
     

@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct Printer {
+public struct Printer {
     
-    static func printc(_ certificates: [SSLCertificateInfo]) {
+    public static func printc(_ certificates: [SSLCertificateInfo]) {
         for cert in certificates {
             print("------------------------------------------------------------")
             if cert.commonName != nil {
@@ -32,7 +32,7 @@ struct Printer {
         }
     }
     
-    static func printAll(_ certificates: [SSLCertificateInfo]) {
+    public static func printAll(_ certificates: [SSLCertificateInfo]) {
         for cert in certificates {
             print("------------------------------------------------------------")
             if cert.commonName != nil {
